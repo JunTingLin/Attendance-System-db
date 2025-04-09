@@ -1,5 +1,5 @@
-# Attendance_System_db
-
+# Attendance-System-db
+TSMC Cloud Native
 
 ## 專案檔
 - **docker-compose.yml**  
@@ -7,7 +7,7 @@
   - **環境變數**：  
     - `MYSQL_ROOT_PASSWORD`：設定 root 使用者密碼（`root123`）。
     - `MYSQL_DATABASE`：自動建立的資料庫名稱`Attendance_System`。
-    - `MYSQL_USER` 與 `MYSQL_PASSWORD`：用來建立應用程式使用者，本範例設定為 `user` 與 `user123`。
+    - `MYSQL_USER` 與 `MYSQL_PASSWORD`：用來建立應用程式使用者，設定為 `user` 與 `user123`。
   - **持久卷設定**：  
     使用 named volume `mysql_data`，將容器內的 `/var/lib/mysql` 資料夾掛載。
   - **SQL 初始化**：  
@@ -17,10 +17,10 @@
   用於建立實際資料表、定義外部鍵約束以及各種資料表間的關聯。可直接匯入 MySQL 使用，亦會在容器初始化時自動執行。
 
 - **Diagram 1.png**  
-  統整的 ERD 圖檔，展示資料庫的大致設計架構。部分例如「一對多」等詳細關聯關係在圖中未有特別標示，僅作為整體參考。
+  ERD 圖檔，資料庫的大致設計架構。部分例如「一對多」等詳細關聯關係在圖中未有特別標示，僅作為整體參考。
 
 - **Attendance-System.ndm2**  
-  ERD 的工作檔案，需使用 [Navicat Premium](https://www.navicat.com/en/products/navicat-premium) 開啟編輯。適合後續進一步調整 ERD。
+  ERD 的工作檔案，需使用 [Navicat Premium](https://www.navicat.com/en/products/navicat-premium) 開啟編輯。後續進一步調整 ERD 才需使用。
 
 ## 如何使用
 ### 1. 前置作業
@@ -37,6 +37,7 @@ docker-compose up -d
 
 + 容器會自動執行 Attendance_System.sql 腳本以初始化資料庫。
 + 資料將儲存在名為 mysql_data 的持久卷中。
++ 考量到可能像我一樣本機3306被占用，可以在[env](./.env)去配置MYSQL_HOST_PORT，目前是3307
 
 
 ### 3. 連線與驗證
@@ -45,7 +46,7 @@ docker-compose up -d
 
     + Host：localhost
 
-    + Port：3306
+    + Port：依照上述設定
 
     + 使用者：user
 
