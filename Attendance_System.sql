@@ -3,6 +3,7 @@ CHARACTER SET utf8mb4
 COLLATE utf8mb4_zh_0900_as_cs;
 USE Attendance_System;
 
+
 CREATE TABLE `t_department`  (
   `department_id` int NOT NULL AUTO_INCREMENT,
   `department_name` varchar(100) NOT NULL COMMENT '部門名稱',
@@ -19,7 +20,7 @@ CREATE TABLE `t_employee`  (
   `position_id` int NOT NULL COMMENT '職位ID',
   `supervisor_id` int NULL COMMENT '上級主管ID，最高層主管為NULL',
   `hire_date` date NOT NULL COMMENT '入職日期',
-  `years_of_service` int NOT NULL COMMENT '服務年資(年)',
+  `months_of_service` int NOT NULL COMMENT '服務月資(月)',
   PRIMARY KEY (`employee_id`)
 );
 
@@ -63,8 +64,8 @@ CREATE TABLE `t_leave_application`  (
 CREATE TABLE `t_leave_rules`  (
   `rule_id` int NOT NULL AUTO_INCREMENT,
   `leave_type_id` int NOT NULL COMMENT '假別ID (連接到t_leave_type)',
-  `years_of_service_min` int NOT NULL COMMENT '年資下限(含)',
-  `years_of_service_max` int NULL COMMENT '年資上限(不含)，NULL表示無上限',
+  `months_of_service_min` int NOT NULL COMMENT '月資下限(含)',
+  `months_of_service_max` int NULL COMMENT '月資上限(不含)，NULL表示無上限',
   `hours_entitled` int NOT NULL COMMENT '該年資區間對應的假期時數',
   PRIMARY KEY (`rule_id`)
 );

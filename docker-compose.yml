@@ -6,6 +6,7 @@ services:
     ports:
       - "${MYSQL_HOST_PORT:-3306}:3306"
     environment:
+      TZ: Asia/Taipei
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: Attendance_System
       MYSQL_USER: user
