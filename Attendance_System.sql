@@ -53,9 +53,9 @@ CREATE TABLE `t_leave_application`  (
   `proxy_employee_id` int NOT NULL COMMENT '代理人ID',
   `status` varchar(20) NOT NULL COMMENT '申請狀態(待審核、已核准、已拒絕)',
   `application_datetime` datetime NOT NULL COMMENT '申請日期時間',
-  `approver_employee_id` int NOT NULL COMMENT '審核人ID',
-  `approval_reason` varchar(500) NOT NULL COMMENT '審核理由',
-  `approval_datetime` datetime NOT NULL COMMENT '審核日期時間',
+  `approver_employee_id` int NULL COMMENT '審核人ID',
+  `approval_reason` varchar(500) NULL COMMENT '審核理由',
+  `approval_datetime` datetime NULL COMMENT '審核日期時間',
   `file_path` varchar(500) NULL COMMENT '檔案儲存路徑(url)',
   `file_name` varchar(255) NULL COMMENT '檔案名稱',
   PRIMARY KEY (`application_id`)
@@ -79,7 +79,7 @@ CREATE TABLE `t_leave_type`  (
 
 CREATE TABLE `t_position`  (
   `position_id` int NOT NULL AUTO_INCREMENT,
-  `position_name` varchar(100) NOT NULL COMMENT '職位名稱(處長,副處長,科長, 軟體程師等)',
+  `position_name` varchar(100) NOT NULL COMMENT '職位名稱(處長,副處長,科長, 軟體工程師等)',
   `position_level` int NOT NULL COMMENT '職位層級(數字越小層級越高)',
   PRIMARY KEY (`position_id`)
 );
