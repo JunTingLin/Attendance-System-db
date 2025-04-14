@@ -14,7 +14,10 @@ TSMC Cloud Native
     將根目錄下的 `Attendance_System.sql` 掛載到 `/docker-entrypoint-initdb.d/`，容器在首次啟動時會自動執行該 SQL 腳本建立資料庫與資料表。
 
 - **Attendance_System.sql**  
-  用於建立實際資料表、定義外部鍵約束以及各種資料表間的關聯。可直接匯入 MySQL 使用，亦會在容器初始化時自動執行。
+  用於建立實際資料表、定義外部鍵約束以及各種資料表間的關聯。可直接匯入 MySQL 使用。
+
+- **Attendance_System_with_data.sql**  
+除了建立資料表外，還包假資料。可直接匯入 MySQL 使用，亦會在容器初始化時自動執行。
 
 - **Diagram 1.png**  
   ERD 圖檔，資料庫的大致設計架構。部分例如「一對多」等詳細關聯關係在圖中未有特別標示，僅作為整體參考。
@@ -179,4 +182,4 @@ docker-compose up -d
 
 ## 密碼生成規則
 
-密碼為10位隨機字母和數字組合
+後來改為Bcrypt hash，`$10$5.skwDVPMxIBe5T3FqeZm.pRb47Fgf4UR3JGATVM6cfyH.5g9YLI2`對應的明碼是`123`
