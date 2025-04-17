@@ -14,6 +14,11 @@
  Date: 14/04/2025 02:15:50
 */
 
+CREATE DATABASE IF NOT EXISTS `Attendance_System`
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_zh_0900_as_cs;
+USE Attendance_System;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
