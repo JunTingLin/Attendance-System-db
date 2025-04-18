@@ -47,6 +47,7 @@ CREATE TABLE `t_employee`  (
   `supervisor_id` int NULL DEFAULT NULL COMMENT '上級主管ID，最高層主管為NULL',
   `hire_date` date NOT NULL,
   `months_of_service` int NOT NULL COMMENT '服務月資(月)',
+  `notify_token` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`employee_id`) USING BTREE,
   INDEX `fk_supervisor_id`(`supervisor_id` ASC) USING BTREE,
   INDEX `fk_department_id`(`department_id` ASC) USING BTREE,
