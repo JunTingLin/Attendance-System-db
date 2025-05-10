@@ -11,7 +11,7 @@
  Target Server Version : 80041
  File Encoding         : 65001
 
- Date: 13/04/2025 17:08:02
+ Date: 10/05/2025 15:32:06
 */
 
 CREATE DATABASE IF NOT EXISTS `Attendance_System`
@@ -47,7 +47,7 @@ CREATE TABLE `t_employee`  (
   `supervisor_id` int NULL DEFAULT NULL COMMENT '上級主管ID，最高層主管為NULL',
   `hire_date` date NOT NULL,
   `months_of_service` int NOT NULL COMMENT '服務月資(月)',
-  `notify_token` varchar(30) DEFAULT NULL,
+  `notify_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_zh_0900_as_cs NULL DEFAULT NULL,
   PRIMARY KEY (`employee_id`) USING BTREE,
   INDEX `fk_supervisor_id`(`supervisor_id` ASC) USING BTREE,
   INDEX `fk_department_id`(`department_id` ASC) USING BTREE,
@@ -65,7 +65,7 @@ CREATE TABLE `t_employee_leave_balance`  (
   `balance_id` int NOT NULL AUTO_INCREMENT COMMENT '餘額記錄唯一識別碼',
   `employee_id` int NOT NULL COMMENT '員工ID',
   `leave_type_id` int NOT NULL COMMENT '假別ID',
-  `year` int NOT NULL COMMENT '年度',
+  `leave_year` int NOT NULL COMMENT '年度',
   `total_hours` int NOT NULL COMMENT '總額度(小時)',
   `used_hours` int NOT NULL COMMENT '已使用額度(小時)',
   `remaining_hours` int NOT NULL COMMENT '剩餘額度(小時)',
